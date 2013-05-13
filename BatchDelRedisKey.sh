@@ -37,7 +37,7 @@ do
    done
 
    if [ "$KeyDel" == "True" ]; then
-      $(redis-cli del $keyname)
+      echo $(redis-cli del $keyname)
    fi
 
 done
