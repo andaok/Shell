@@ -10,9 +10,24 @@
 
 NoDelKeyFlag=( info date )
 
-KeysList=$(redis-cli keys *info | awk '{print $1}')
+NoDelKeyFlagNum=${#NoDelKeyFlag[*]}
 
-for key in $KeysList
+AllKeyList=$(redis-cli keys \* | awk '{print $1}' | xargs echo )
+
+AllKeyArray=( $AllKeyList )
+
+echo ${#AllKeyArray[*]}
+
+for ((i=0;i<$NoDelKeyFlagNum;i++))
 do
-  echo $key
+   KeysList=$(redis-cli keys *${NoDelKeyFlag[i]} | awk '{print $1}') 
+   
+   for key in $KeysList
+   do
+      echo $key      
+   done  
 done
+
+
+
+
