@@ -8,7 +8,7 @@
 #
 ###################################
 
-NoDelKeyFlag=( info date )
+NoDelKeyFlag=( info )
 
 NoDelKeyFlagNum=${#NoDelKeyFlag[*]}
 
